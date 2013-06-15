@@ -1,0 +1,42 @@
+class Grade
+{
+	private double score;
+	
+	public Grade(int s)
+	{
+		score = s;
+	}
+	
+	public double getScore()
+	{
+		return score;
+	}
+	
+	public char getGrade()
+	{
+		char grade = ' ';
+		if(score >89)
+			grade = 'A';
+		else if(score >79 && score <= 89)
+			grade = 'B';
+		else if(score >65 && score <= 79)
+			grade = 'C';
+		else
+			grade = 'D';
+		return grade;	
+	}
+}
+
+public class Inheritance 
+{
+
+	public static void main(String[] args) 
+	{
+		
+		int score = 67;
+		Grade grade = new Grade(score);
+		System.out.println("Your score is " + grade.getScore() + "! Your letter grade is " + grade.getGrade() + "!");
+
+	}
+
+}

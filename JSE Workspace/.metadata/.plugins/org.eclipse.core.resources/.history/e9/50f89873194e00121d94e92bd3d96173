@@ -1,0 +1,74 @@
+class ParkedCar
+{
+	private String make;
+	private String model;
+	private String color;
+	private String licenceNum;
+	private int minutes;
+	
+	public ParkedCar(String m1, String m2, String c, String l, int m3)
+	{
+		make = m1;
+		model = m2;
+		color = c;
+		licenceNum = l;
+		minutes = m3;
+	}
+	
+	public int getMinutes()
+	{
+		return minutes;
+	}
+	
+	public ParkedCar(ParkedCar ParkedCar2)
+	{
+		make = ParkedCar2.make;
+		model = ParkedCar2.model;
+		color = ParkedCar2.color;
+		licenceNum = ParkedCar2.licenceNum;
+		minutes = ParkedCar2.minutes;
+	}
+	
+	public void setParkedCar(String m1, String m2, String c, String l, int m3)
+	{
+		make = m1;
+		model = m2;
+		color = c;
+		licenceNum = l;
+		minutes = m3;
+	}
+	
+	public String toString()
+	{
+		String st = "The car’s make: " + make + 
+					"\nThe car’s model: " + model +
+					"\nThe car’s color: " + color +
+					"\nThe car’s license number: " + licenceNum +
+					"\nThe car’s number of minutes that the car has been parked: " + minutes;
+		return st;
+	}
+}
+
+class ParkingMeter
+{
+	private int mins;
+	private ParkedCar parkedCar;
+	
+	public ParkingMeter()
+	{
+		mins = parkedCar.getMinutes();
+	}
+	
+	public int minutesParked()
+	{
+		return mins;
+	}
+}
+
+public class TicketSimulatorApp {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

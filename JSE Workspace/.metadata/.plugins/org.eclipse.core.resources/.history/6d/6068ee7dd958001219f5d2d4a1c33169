@@ -1,0 +1,19 @@
+public class test1
+{
+	public static void main(String[] args)
+	{
+		
+		//recString("Hello", ("Hello").length());
+	}
+	
+	public static void recString(String st, int size)
+	{
+		if(size < 0)
+			return;
+		else
+		{
+			System.out.print(st.charAt(size));	
+			recString(st, size - 1);
+		}
+	}
+}

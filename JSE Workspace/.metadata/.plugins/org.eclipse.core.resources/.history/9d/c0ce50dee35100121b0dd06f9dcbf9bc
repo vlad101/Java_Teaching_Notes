@@ -1,0 +1,30 @@
+class Point<T>
+{
+	private T num;
+	
+	public Point(T x)
+	{
+		num = x;
+	}
+	
+	public void setNum(T x)
+	{
+		num = x;
+	}
+	
+	public T getNum()
+	{
+		return num;
+	}
+}
+
+public class PointApp {
+
+	public static void main(String[] args) 
+	{
+		Point[] arr = {new Point<Double>(10.0), new Point<String>("ho")};
+		for(int i = 0; i < 2; i++)
+			System.out.println(arr[i].getNum());
+	}
+
+}

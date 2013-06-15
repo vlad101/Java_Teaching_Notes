@@ -1,0 +1,27 @@
+public class QuickSort 
+{	
+	public static void display(int[] array)
+	{
+		for(int j = 0; j < array.length; j++)
+			System.out.print(array[j] + " ");
+		System.out.println();
+	}
+	
+	public static void quickSort(int[] array, int lowerBound, int upperBound)
+	{
+		int low = lowerBound;
+		int high = upperBound;
+		if(low >= high)
+			return;
+		int middle = ( lowerBound + upperBound )/ 2;
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		int[] array = {1,3,6,2};
+		display(array);
+		quickSort(array, 0, array.length - 1);
+		display(array);
+	}
+}

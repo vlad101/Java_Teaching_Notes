@@ -1,0 +1,12 @@
+public class FindCharApp 
+{
+	public static void main(String[] args) 
+	{
+
+	}
+	
+	public static void findChar(String s, char c)
+	{
+		
+	}
+}

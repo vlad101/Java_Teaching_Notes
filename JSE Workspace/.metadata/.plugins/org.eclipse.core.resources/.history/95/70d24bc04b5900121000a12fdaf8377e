@@ -1,0 +1,15 @@
+
+public class PointApp
+{
+    public static void main(String[] args)
+    {
+int[] arr = {1,2,3,4,5}; System.out.println("The sum of elements is " + sum(arr, 0, arr.length - 1));
+    }
+public static int sum(int[] a, int start, int end)
+{
+	if(start > end)
+		return 0;
+	else
+		return a[start] + sum(a, start + 1, end);
+}
+}

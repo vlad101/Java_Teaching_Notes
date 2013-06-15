@@ -1,0 +1,94 @@
+import java.util.Scanner;
+
+class Circle
+{
+	private double radius;
+	
+	public Circle(double r)  // constructor
+	{
+		radius = r;  
+	}
+	
+	public double getRadius() // return the value of the radius
+	{
+		return radius;
+	}
+	
+	public double getArea() // return the value of the Area
+	{
+		return radius * radius * Math.PI;
+	}
+	
+	public double getDiameter()  // return the value of the Diameter
+	{
+		return radius * 2;  
+	}
+	
+	public double getCircumference()
+	{
+		return radius * 2 * Math.PI;
+	}
+	
+	public String toString()
+	{
+		String st = "The radius of the circle is " + getRadius() +
+		             "\nTHe area of the circle is " + getArea() +
+		             "\nThe diameter of the circle is " + getDiameter()+
+		             "\nThe circumference of the circle is " + getCircumference();
+		return st;
+	}
+
+}
+
+public class CircleApp 
+{
+	
+	public static Scanner keyboard = new Scanner(System.in);
+
+	public static void main(String[] args) 
+	{
+		final int NUM = (int) validateInput("How many circles would you like to enter: ");
+		
+		Circle[] circles = new Circle[NUM]; // declare an array of circles
+		
+		for(int i = 0; i < NUM; i++)// create a new circle object
+		{
+			circles[i] = createCircle();
+		}
+		
+		for(Circle c : circles) // display information for each circle object
+			System.out.println(c.toString());
+			
+	}
+	
+	public static Circle createCircle()
+	{
+		double radius = validateInput("Enter a valid radius: ");
+		return new Circle(radius); // create a new circle object with a given radius
+	}
+		
+	public static double validateInput(String st)
+	{
+		double num = 0;
+		while(true)
+		{
+			try
+			{
+				do
+				{
+					System.out.print(st);
+					num = Double.parseDouble(keyboard.nextLine());
+					if(num < 0)
+						System.out.println("Wrong value! Try Again!");
+				}
+				while(num < 0);
+			}
+			catch(NumberFormatException NFE)
+			{
+				System.out.println("Wrong value! Try Again!");
+				continue;
+			}
+			return num;
+		}
+	}
+}

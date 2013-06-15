@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Test{
+	
+	public static void main(String[] args){
+		
+		displayMenu();
+		
+	}
+	
+	public static void displayMenu()
+	{
+		System.out.println("********Conversion Menu*********");
+		System.out.println("1. Convert meters to kilometers");
+		System.out.println("2. Convert meters to inches");
+		System.out.println("3. Convert meters to feet");
+		System.out.println("4. Quit the program");
+		System.out.println("********************************");
+	}
+}
+

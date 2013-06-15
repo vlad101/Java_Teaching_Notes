@@ -1,0 +1,145 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class Player
+{
+	private String name;
+	private int dieValue1, dieValue2;
+	
+	public Player(String n)
+	{
+		name = n;
+	}
+	
+	public void rollDieValue()
+	{
+		Die die1 = new Die();
+		Die die2 = new Die();
+		dieValue1 = die1.rollDice();
+		dieValue2 = die2.rollDice();
+	}
+	
+	public void setDieValue1(int pts)
+	{
+		dieValue1 = pts;
+	}
+	
+	public void setDieValue2(int pts)
+	{
+		dieValue2 = pts;
+	}
+	
+	public int getDieValue1()
+	{
+		return dieValue1;
+	}
+	
+	public int getDieValue2()
+	{
+		return dieValue2;
+	}
+	
+	public int getTotalDieValue()
+	{
+		return (getDieValue1() + getDieValue2());
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+}
+
+class Die
+{
+	
+	public int rollDice()
+	{
+		Random random = new Random();
+		return random.nextInt(5) + 1;
+	}
+}
+
+
+public class TwentyOneApp {
+	
+	public static Scanner keyboard = new Scanner(System.in);
+
+	public static void main(String[] args) 
+	{
+		
+		System.out.println("*************Twenty-One!*************");
+		
+		int input;
+		int playersNum = validateInput("Enter the number of players: ");
+		Player[] players = new Player[playersNum];
+		for(int i = 0; i < playersNum; i++)
+		{
+			System.out.printf("Enter Player %d name: ", (i + 1));
+			String name = keyboard.nextLine();
+			players[i] = new Player(name);
+		}
+		
+		// for each player
+		
+		for(int i = 0; i < playersNum; i++){
+			int total = 0;
+			do{
+				System.out.println("Player " + players[i].getName() + " rolls the die!");
+				players[i].rollDieValue();
+				System.out.println("Die value: " + players[i].getTotalDieValue());
+				total += players[i].getTotalDieValue();
+				System.out.println("Your total amount of points so far is : " + total);
+				input = validateInput("Do you want to continue? Enter 1 to Continue, 2 to quit! ");
+				while(input >3)
+					input = validateInput("Wrong Value! Try again! Enter 1 to Continue, 2 to quit! ");
+			}while(input == 1);
+			System.out.println("Your total score is " + total);
+			players[i].setDieValue1(total);
+		}
+		
+		for(int i = 0; i < playersNum; i++)
+			
+		{
+			int max = 0;
+			String name = " ";
+			if(players[i].getTotalDieValue() > 21)
+				System.out.println(players[i].getName() + " lost because earned more than 21 points!");
+			System.out.println("Player " + players[i].getName() + " received " + players[i].getTotalDieValue() + " points");
+			if(players[i].getTotalDieValue() >= max)
+			{
+				max = players[i].getTotalDieValue();
+				name = players[i].getName();
+			}
+			System.out.println("The winner is " + name + "!");
+		}
+	}
+	
+		
+	public static int validateInput(String st)
+	{
+		int num = 0;
+		while(true)
+		{
+			try
+			{
+				do
+				{
+					System.out.print(st);
+					num = Integer.parseInt(keyboard.nextLine());
+					if(num <= 0)
+						System.out.println("Wrong Value! Try again!");
+				}
+				while(num <= 0);
+			}
+			catch(NumberFormatException nfe)
+			{
+				System.out.println("Wrong Value! Try again!");
+				continue;
+			}
+			return num;
+		}
+	}
+
+}

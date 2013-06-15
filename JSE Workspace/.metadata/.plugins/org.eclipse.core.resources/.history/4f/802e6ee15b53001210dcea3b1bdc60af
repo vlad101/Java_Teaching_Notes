@@ -1,0 +1,18 @@
+
+interface StringList
+{
+	public void add(String str);
+	public void add(int index, String str);
+	public void clear();
+	public boolean contains(String str);
+	public void get String(int index);
+	
+}
+
+public class StringListApp {
+
+	public static void main(String[] args) {
+
+	}
+
+}

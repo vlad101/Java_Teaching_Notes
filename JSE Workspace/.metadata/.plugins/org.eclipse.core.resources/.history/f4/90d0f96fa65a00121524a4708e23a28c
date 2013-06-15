@@ -1,0 +1,119 @@
+class Node
+{
+	public int value;
+	public Node next;
+	
+	public Node(int val, Node n)
+	{
+		value = val;
+		next = n;
+	}
+	
+	public Node(int val)
+	{
+		this(val, null);
+	}
+}
+
+class SinglyLinkedList
+{
+	private Node first;
+	
+	public SinglyLinkedList()
+	{
+		first = null;
+	}
+	
+	public boolean isEmpty()
+	{
+		return (first == null);
+	}
+	
+	public void insertFirst(int val)
+	{
+		first = new Node(val, first);
+	}
+	
+	public Node deleteFirst()
+	{
+		Node temp = first;
+		first = first.next;
+		return temp;
+	}
+	
+	public boolean find(int val)
+	{
+		for(Node current = first; current != null; current = current.next)
+			if(current.value == val)
+				return true;
+		return false;
+	}
+	
+	public boolean delete(int val)
+	{
+		if(isEmpty())
+			return false;
+		if(first.value == val)
+		{
+			first = first.next;
+			return true;
+		}
+		
+		else
+		{
+			Node current;
+			for(current = first; current.next != null && !(current.next.value == val); current = current.next)
+				current = current.next;
+			if(current.next == null)
+				return false; 
+			current.next = current.next.next;
+			return true;
+		}
+	}
+	
+	public String toString()
+	{
+		java.lang.StringBuilder builder = new java.lang.StringBuilder();
+		for(Node current = first; current != null; current = current.next)
+			builder.append(current.value + " ");
+		return builder.toString();			
+	}
+}
+
+public class SinglyLinkedApp 
+{
+
+	public static void main(String[] args) 
+	{
+		SinglyLinkedList sll = new SinglyLinkedList();
+		sll.insertFirst(5);
+		sll.insertFirst(1);
+		sll.insertFirst(3);
+		sll.insertFirst(2);
+		sll.insertFirst(4);
+		System.out.println(sll);
+		
+		if(sll.find(1))
+			System.out.println("Found!");
+		else
+			System.out.println("Not found!");
+		
+		sll.delete(4);
+		sll.delete(2);
+		sll.delete(3);
+		sll.delete(1);
+		sll.delete(5);
+		
+		System.out.println(sll);
+		sll.insertFirst(5);
+		sll.insertFirst(1);
+		sll.insertFirst(3);
+		sll.insertFirst(2);
+		sll.insertFirst(4);
+		
+		
+		//sll.deleteFirst();
+		System.out.println(sll);
+	}
+
+}

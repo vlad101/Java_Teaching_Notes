@@ -1,0 +1,20 @@
+class DriverExam
+{
+	private char[] answerKey = {'B','D','A','A','C'};
+	private char[] studentAnswers;
+	
+	public DriverExam(char[] s)
+	{
+		studentAnswers = s;
+	}
+}
+
+public class DriverExamApp {
+
+	public static void main(String[] args) {
+
+		int 
+		
+	}
+
+}

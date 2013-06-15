@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Aggregation 
+{
+	
+	
+	public static void main(String[] args) 
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String ans = keyboard.nextLine();
+		char resp = ans.charAt(0);
+		if(Character.isDigit(resp))
+			System.out.println("Entered ana didit from 0 through 9");
+		
+	}
+
+}

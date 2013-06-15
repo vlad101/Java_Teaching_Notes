@@ -1,0 +1,16 @@
+import java.util.Random;
+
+public class RockPaperScissors {
+	
+	public static void main(String[] args) {
+		System.out.println(generate());
+	}
+	
+	public static String generate()
+	{
+		Random random = new Random();
+		String[] choice = {"rock", "scissors", "paper"};
+		return choice[random.nextInt(2)];
+	}
+	
+}

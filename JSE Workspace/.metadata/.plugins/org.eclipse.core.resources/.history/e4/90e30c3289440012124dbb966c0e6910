@@ -1,0 +1,45 @@
+public class QuickSort 
+{	
+	public static void display(int[] array)
+	{
+		for(int j = 0; j < array.length; j++)
+			System.out.print(array[j] + " ");
+		System.out.println();
+	}
+	
+	public static void quickSort(int array[],int lowerBound, int upperBound)
+	{
+		  int low = lowerBound;
+		  int high = upperBound;
+		  if (low >= upperBound)
+			  return;
+		  int mid = array[(low + high) / 2];
+		  while (low < high) {
+			  while (low < high && array[low] < mid)
+				  low++;
+		  while (low < high && array[high] > mid)
+			  high--;
+			  if (low < high) {
+				  int temp = array[low];
+				  array[low] = array[high];
+				  array[high] = temp;
+			  }
+		  }
+		  if (high < low) 
+		  {
+			  int temp = high;
+			  high = low;
+			  low = temp;
+		  }
+		  quickSort(array, lowerBound, low);
+		  quickSort(array, low == lowerBound ? low+1 : low, upperBound);
+	}
+	
+	public static void main(String[] args) 
+	{
+		int[] array = {1,3,6,2};
+		display(array);
+		quickSort(array, 0, array.length - 1);
+		display(array);
+	}
+}

@@ -1,0 +1,21 @@
+public class test1
+{
+    public static void main(String[] args)
+    {
+        int sum = 0;
+        int[] arr = {1,2,3,4,5};
+        System.out.println(recSum(arr, arr.length - 1, sum));
+    }
+    
+    public static int recSum(int[] arr, int size, int s)
+    {
+        if(size < 0)
+            return s;
+        else
+        {
+            s += arr[size];
+            return recSum(arr, size - 1, s);
+        }
+    }
+    
+}

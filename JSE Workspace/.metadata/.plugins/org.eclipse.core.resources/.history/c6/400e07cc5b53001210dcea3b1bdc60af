@@ -1,0 +1,14 @@
+
+interface StringList
+{
+	public void add(String str);
+	
+}
+
+public class StringListApp {
+
+	public static void main(String[] args) {
+
+	}
+
+}

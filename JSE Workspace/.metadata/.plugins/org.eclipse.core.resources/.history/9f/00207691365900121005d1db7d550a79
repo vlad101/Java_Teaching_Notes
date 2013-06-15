@@ -1,0 +1,16 @@
+
+public class PointApp
+{
+    public static void main(String[] args)
+    {
+    	System.out.println("The 5th term of recursion is 5 + 4 + 3 + 2 + 1 = " + triangle(5));
+    }
+    
+    public static int triangle(int n)
+    {
+    	if(n == 1)
+    		return 1;
+    	else
+    		return n + triangle(n - 1);
+    }
+}

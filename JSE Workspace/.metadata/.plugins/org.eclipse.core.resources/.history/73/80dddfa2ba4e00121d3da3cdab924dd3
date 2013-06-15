@@ -1,0 +1,37 @@
+class Employee
+{
+	private String name;
+	private String idNum;
+	private String hireDate;
+	
+	public Employee(String n, String id, String h)
+	{
+		name = n;
+		idNum = id;
+		hireDate = h;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getId()
+	{
+		return idNum;
+	}
+	
+	public String getHireDate()
+	{
+		return hireDate;
+	}
+}
+
+public class EmployeeApp 
+{
+	public static void main(String[] args) 
+	{
+
+	}
+
+}

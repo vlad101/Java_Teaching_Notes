@@ -1,0 +1,20 @@
+public class test1
+{
+    public static void main(String[] args)
+    {
+        String st = "Hello World";
+        reverseStr(st, st.length() - 1);
+    }
+    
+    public static void reverseStr(String s, int size)
+    {
+        if(size < 0)
+            return;
+        else
+        {
+            System.out.print(s.charAt(size));
+            reverseStr(s, size - 1);
+        }
+    }
+    
+}

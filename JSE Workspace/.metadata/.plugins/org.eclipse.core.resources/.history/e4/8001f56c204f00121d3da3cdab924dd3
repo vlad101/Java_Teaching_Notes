@@ -1,0 +1,30 @@
+import java.util.regex.*;
+
+public class RegexApp 
+{
+	public static void main(String[] args) 
+	{
+		String longString = " dsafadasbn vmmmmmmmmmmm mmmmmmmmmmmmm  mmm mmmmzzz";
+		String strangeString = "12 aaa&*(&*&^%%$$#%$%^^%&^&*&*({}:<?>:";
+		
+		 // search for a word that is 2-20 characters in length: [A-Za-z]{2, 20} or \\w{2, 20}
+		regexChecker("\\s[A-Za-z]{2,20}", longString);
+	}
+	
+	public static void regexChecker(String theRegex, String str2Check)
+	{
+		Pattern checkRegex = Pattern.compile(theRegex);
+		Matcher regexMatcher = checkRegex.matcher(str2Check);
+		
+		while(regexMatcher.find())
+		{
+			if(regexMatcher.group().length() != 0) // string should have a length
+				System.out.println(regexMatcher.group().trim()); // get rid of the white spaces
+			
+			System.out.println("Start index: " + regexMatcher.start());
+			System.out.println("End index: " + regexMatcher.end());
+		}
+		
+
+	}
+}

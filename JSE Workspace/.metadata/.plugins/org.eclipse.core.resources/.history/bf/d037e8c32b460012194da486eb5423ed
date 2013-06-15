@@ -1,0 +1,12 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String wages1 = "hello";
+		String wages2 = new String("hello");
+		System.out.println(wages1);
+
+	}
+
+}

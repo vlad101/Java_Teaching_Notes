@@ -1,0 +1,14 @@
+class Ship
+{
+	
+}
+
+public class ShipApp 
+{
+
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

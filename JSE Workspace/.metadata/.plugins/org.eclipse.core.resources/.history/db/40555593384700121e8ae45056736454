@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+class Student
+{
+	private String name;
+	private int[] grades;
+	private int gradesNum;
+	
+	public Student(String n, int[] s)
+	{
+		grades = s;
+		name = n;
+		gradesNum = 3;
+	}
+	
+	public void getName()
+	{
+		System.out.println(name);
+	}
+	
+	public void getScores()
+	{
+		System.out.print("List of scores: ");
+		for(int i = 0; i < gradesNum; i++)
+			System.out.print(grades[i] + " ");
+		System.out.println();
+	}
+	
+	public void getAverage()
+	{
+		double sum = 0;
+		for(int i = 0; i < gradesNum; i++)
+			sum += grades[i];
+		System.out.printf("Average %.2f \n", sum/gradesNum);
+	}
+	
+	public void removeLowestScore()
+	{
+		int low = 110;
+		for(int i = 0; i < gradesNum; i++)
+			if(grades[i] < low)
+				low = grades[i];
+		System.out.printf("The lowest grade is %d will be excluded from the average!\n", low);
+		gradesNum--;
+		removeLowestScore(low);
+	}
+	
+	public void removeLowestScore(int value)
+	{
+		int i;
+		for(i = 0; i < gradesNum; i++)
+			if(grades[i] == value)
+				break;
+			for(int j = i; j < gradesNum; j++)
+				grades[j] = grades[j + 1];
+			getScores();
+			getAverage();
+	}
+}
+
+public class Test 
+{
+	
+	public static void main(String[] args) 
+	{	
+		Scanner keyboard = new Scanner(System.in);
+		System.out.print("How many students in the class? ");
+		String st = keyboard.nextLine();
+		int studNum = Integer.parseInt(st);
+		
+		Student[] student = new Student[studNum];
+		for(int i = 0; i < studNum; i++){
+			
+			System.out.print("Enter student's name: ");
+			String name = keyboard.nextLine();	
+			
+			int[] scores = new int[3];
+			for(int j = 0; j < 3; j++){
+				System.out.print("Grade " + (j + 1)+ ": ");
+				String sc = keyboard.nextLine();
+				scores[j] = Integer.parseInt(sc);
+			}
+			student[i] = new Student(name, scores);
+			System.out.println();
+		}
+		
+		for(int i = 0; i < studNum; i++)
+		{
+			student[i].getName();
+			student[i].getScores();
+			student[i].getAverage();
+			student[i].removeLowestScore();
+			System.out.println();
+		}
+			
+	}
+}

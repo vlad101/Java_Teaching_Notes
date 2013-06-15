@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class FindCharApp {
+
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		String st = keyboard.nextLine();
+		if(st.length() == 0)
+			System.out.println("Wrong character!");
+	}
+
+}

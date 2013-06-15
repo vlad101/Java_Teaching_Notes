@@ -1,0 +1,29 @@
+
+public class BinarySearchApp 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr = {1,3,4,5};
+		if(binarySearch(arr, 0, arr.length - 1, 6))
+			System.out.println("The item is found!");
+		else
+			System.out.println("The item is not found!");
+	}
+	
+	public static boolean binarySearch(int[] array, int lowerBound, int upperBound, int value)
+	{
+		int curIn;
+			curIn = (lowerBound + upperBound) / 2;
+			if(array[curIn] == value)
+				return true;
+			if(lowerBound > upperBound)
+				return false;
+			else
+			{
+				if(value > array[curIn])
+					return binarySearch(array, curIn + 1, upperBound, value);
+				else
+					return binarySearch(array, lowerBound, curIn - 1, value);
+			}
+	}
+}

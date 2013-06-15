@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+class DriverExam
+{
+	private char[] answerKey = {'B','D','A','A','C'};
+	private String[] studentAnswers;
+	
+	public DriverExam(String[] s)
+	{
+		studentAnswers = s;
+	}
+	
+	public void displayStudentAnswers()
+	{
+		for(int i = 0; i < studentAnswers.length; i++)
+			System.out.print(studentAnswers[i].charAt(0) + " ");
+		System.out.println();
+	}
+}
+
+public class DriverExamApp {
+	
+	public static Scanner keyboard = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		
+		String[] testQuestion = new String[5]; // declare test questions
+		
+		int studentsNum = validateInput("Enter the number of students who took exam: ");
+		DriverExam[] exams = new DriverExam[studentsNum]; // declare an an array of the exams
+		
+		for(int i = 0; i < studentsNum; i++)   // for each student get scores, create new exam objects, get scores
+		{
+			System.out.println("Get results for student #" + (i + 1));
+			for(int j = 0; j < 5; j++)
+			{
+				System.out.print("Answer # " + (j + 1) + " is ");
+				testQuestion[j] = keyboard.nextLine();
+			}
+			exams[i] = new DriverExam(testQuestion);
+		}   
+		
+		for(int i = 0; i < studentsNum; i++) // display the following information for each student
+		{
+			System.out.print("Display the test scores for student " + (i + 1) + ": ");
+			exams[i].displayStudentAnswers();
+		}
+	}
+	
+	public static int validateInput(String st)
+	{
+		int num = 0;
+		
+		while(true)
+		{
+			try
+			{
+				do
+				{
+					System.out.print(st);
+					num = Integer.parseInt(keyboard.nextLine());
+					if(num <= 0)
+						System.out.println("Wrong Value! Try Again");
+				}
+				while(num <= 0);	
+			}
+			catch(NumberFormatException nfe)
+			{
+				System.out.println("Wrong Value! Try Again");
+				continue;
+			}
+			return num;
+		}
+	}
+	
+	
+
+}

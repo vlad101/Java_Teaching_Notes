@@ -1,0 +1,25 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		
+		int[] arr = {1,2,3,4};
+		for(int j : arr)
+			System.out.print (j + " ");
+		changeNum(arr);
+		for(int j : arr)
+			System.out.println(j);
+		
+
+	}
+	
+	public static void changeNum(int[] arr){
+		 
+		int[] arr1 = {1,2,3};
+		
+		
+		
+	}
+
+}

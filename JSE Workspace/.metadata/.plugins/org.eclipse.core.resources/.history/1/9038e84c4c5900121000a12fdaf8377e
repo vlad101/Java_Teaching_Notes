@@ -1,0 +1,18 @@
+
+public class PointApp
+{
+    public static void main(String[] args)
+    {
+String str = "Hello!"; System.out.println(reverseString(str, str.length() - 1, 0));
+    }
+public static void reverseString(String st, int start, int end)
+{
+	if(start < end)
+		System.out.println("\n");
+	else
+	{
+		System.out.print(st.charAt(start));
+		reverseString(st, start - 1, end);
+	}
+}
+}

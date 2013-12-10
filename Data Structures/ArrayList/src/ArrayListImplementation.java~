@@ -19,7 +19,6 @@ interface StringArrayList
     public boolean isFull();
 }
 
-
 class ArrayList implements StringArrayList
 {
     private final int DEFAULT_CAPACITY = 10;  // Default size of the String Array

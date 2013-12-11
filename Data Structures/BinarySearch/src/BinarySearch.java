@@ -14,6 +14,11 @@ public class BinarySearch
             System.out.println("Found!");
         else
             System.out.println("Not Found!");
+		
+        if(binarySearchRecursive(arr, searchValue, 0, arr.length - 1))
+            System.out.println("Found!");
+        else
+            System.out.println("Not Found!");
     }
 
     /**
@@ -42,6 +47,30 @@ public class BinarySearch
                 else
                     upperBound = curIn - 1;
             }
+        }
+    }
+
+    /**
+     * The binarySearch method searches for the element in the array using recursion.
+     * @param a The array where the value will be searched.
+     * @param searchKey The value that is searched for.
+     * @param lowerBound Start point of the search.
+     * @param upperBound End point of the search.
+     * @return true if the element is found, otherwise return false.
+     */
+    public static boolean binarySearchRecursive(int[] a, int searchKey, int lowerBound, int upperBound)
+    {
+        int curIn = (lowerBound + upperBound) / 2;
+        if(a[curIn] == searchKey)
+            return true;
+        else if(lowerBound > upperBound)
+            return false;
+        else
+        {
+            if(a[curIn] < searchKey)
+                return binarySearchRecursive(a, searchKey, curIn + 1, upperBound);
+            else
+                return binarySearchRecursive(a, searchKey, lowerBound, curIn - 1);
         }
     }
 }

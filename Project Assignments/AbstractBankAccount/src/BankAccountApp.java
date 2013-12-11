@@ -1,122 +1,40 @@
-import java.text.DecimalFormat;
-
-abstract class BankAccount
-{
-	private double balance;
-	private int numDeposits = 0;
-	private int numWithdrawal = 0;
-	private double interestAnnualRate;
-	private double serviceCharge;
-
-	public BankAccount(double b, double i)
-	{
-		balance = b;
-		interestAnnualRate = i;
-	}
-	
-	public void deposit(double amount)
-	{
-		balance += amount;
-		numDeposits++;
-	}
-	
-	public void withdraw(double amount)
-	{
-		balance -= amount;
-		numWithdrawal++;
-	}
-	
-	public void calcInterest()
-	{
-		balance += balance * interestAnnualRate / 12;
-	}
-	
-	public void monthlyProcess()
-	{
-		balance = balance - serviceCharge;
-		calcInterest();
-		numDeposits = 0;
-		numWithdrawal = 0;
-		serviceCharge = 0;
-	}
-	
-	public double getBalance()
-	{
-		return balance;
-	}
-	
-	public int getNumWithdrawal()
-	{
-		return numWithdrawal;
-	}
-	
-	public double getServiceCharge()
-	{
-		return serviceCharge;
-	}
-	
-	public void setServiceCharge(double a)
-	{
-		serviceCharge = a;
-	}
-}
-
-class SavingsAccount extends BankAccount
-{
-	private BankAccount bank;
-	private boolean accountStatus = false;
-	
-	public SavingsAccount(double b, double i)
-	{
-		super(b, i);
-	}
-	
-	public boolean isActive()
-	{
-		if(getBalance() >= 25)
-			accountStatus = true;
-		return accountStatus;
-	}
-	
-	public void withdraw(int value)
-	{
-		if(!(isActive()))
-		{
-			System.out.println("The account is inactive! No withdrawals can be made until the balance is $25!");
-		}
-		else
-		{
-			System.out.println("The account is active!");
-			if(getNumWithdrawal() > 4)
-				if(value > 4)
-					setServiceCharge(getServiceCharge() + 1);
-			if(!(isActive()))
-				super.withdraw(value);
-		}
-	}
-	
-	public void deposit(double value)
-	{
-		if(!(isActive()))
-		{
-			if(getBalance() + value >= 25)
-			{
-				accountStatus = true;
-				super.deposit(value);
-			}
-				
-		}
-	}
-}
-
 public class BankAccountApp 
 {
-
 	public static void main(String[] args) 
 	{
 		SavingsAccount account = new SavingsAccount(500.00, 0.15);
-		
-	}
 
+		Customer cust1 = new Customer("Vlad", "32 Bleekker St. NY, NY", "12345");
+		cust1.setCustNum("213-CUST");
+		cust1.setMailList(true);
+		
+		System.out.println("---------------------");
+		System.out.println("Customer Information");
+		System.out.println("---------------------");
+		System.out.println("Name: " + cust1.getName());
+		System.out.println("Adddress: " + cust1.getAddress());
+		System.out.println("Telephone number: " + cust1.getTelephone());
+		System.out.println("Customer Number: " + cust1.getCustNum());
+		System.out.println(cust1.getMailList());
+		System.out.println();
+		
+		PrefferedCustomer cust2 = new PrefferedCustomer("Sveta", "35 Blet St. NY, NY", "67891");
+		cust2.setCustNum("215-CUST");
+		cust2.setMailList(false);
+		cust2.setAmountOfPurchase(100.00);
+		cust2.setDiscountLevel(4);
+		
+		System.out.println("-------------------------------");
+		System.out.println("Preffered Customer Information");
+		System.out.println("-------------------------------");
+		System.out.println("Name: " + cust2.getName());
+		System.out.println("Adddress: " + cust2.getAddress());
+		System.out.println("Telephone number: " + cust2.getTelephone());
+		System.out.println("Customer Number: " + cust2.getCustNum());
+		System.out.println(cust2.getMailList());
+		System.out.println("Discount Level: " + cust2.getDiscountLevel());
+		System.out.printf("The amount of purchase: $%.2f\n", cust2.getAmountOfpurchase());
+		System.out.println(cust2.getPrice());
+		System.out.println();
+	}
 }
-+
